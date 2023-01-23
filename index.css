@@ -6,14 +6,15 @@
     box-sizing: border-box;
     font-family: 'Kanit', sans-serif;
     text-decoration: none;
+    -ms-overflow-style: none;  /* IE and Edge */
 }
 *::-webkit-scrollbar {
     display: none;
 }
 nav{
     width: 100;
-    height: 7vw;
-    background: linear-gradient(125deg, #e18139, #df7526 );
+    height: 10vw;
+    background: linear-gradient(125deg, #D9CCC7, #D9CCC7 );
 }
 /*config กล่องที่/ สีขาวทับซ้อนกล่องสีน้ำตาล ส่วนบน*/
 .button {
@@ -36,7 +37,7 @@ nav{
 }
 /*fig Logo website*/
 .navlogo{
-    height: 7vw;
+    height: 10vw;
     object-fit: contain;
 }
 .nav-profile{
@@ -47,26 +48,26 @@ nav{
 .nav-profile-name{
     color: #000;
     margin-left: 20px;
-    font-size: 1.2vw;
+    font-size: 2vw;
 }
 /*size รถเข็น*/
 .fa-solid {
-    font-size: 2vw;
+    font-size: 3vw;
     color: #000;
 }
 .nav-profile-cart {
     position: relative;
 }
 .cartcount{
-    position: absolute ;
-    top: -15;
-    left: -15;
+    position: absolute;
+    top: -15px;
+    right: -15px;
     width: 25px;
     height: 25px;
     background: red;
     border-radius: 50%;
     display: flex;
-    justify-items: center;
+    justify-content: center;
     align-items: center;
     color: #fff;
 }
@@ -75,24 +76,19 @@ nav{
     margin: 0 auto;
     display: flex;
 }
+.Product{
+    width: 80vw;
+    padding: 10px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
 .sidebar{
     width: 20%;
     padding: 10px;
     display: flex;
     flex-direction: column;
-}
-.Product{
-    margin-left:70px ;
-    width: 80%;
-    padding: 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-     grid-template-columns: repeat(4, 1fr);
-    justify-content: cente;
-    grid-gap: 20px;
 }
 .sidebar-search{
     font-size: 1.2vw;
@@ -191,7 +187,7 @@ nav{
     transition: 0.3s;
 }
 .btn-bey{
-    background: linear-gradient(125deg, #df7526,#fff );
+    background: linear-gradient(125deg, #f72f0b,rgb(249, 17, 17) );
     color: #fff;
     margin-left: 10px;
 }
