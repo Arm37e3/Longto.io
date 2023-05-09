@@ -3,140 +3,106 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, init ial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping</title>
 
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <script src="index.js"></script>
-    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  <body>
-        <!--ส้วนบนของเว็บไซต์-->
-        <nav>
-          <!-- กล่องที่1 -->
-          <div class="nav-container">
-            <a href="index.html">
-              <img class="navlogo" src="./img/49282.jpg" class="navlogo" >
-            </a>
 
-            <!-- กล่องที่2 -->
-            <button type="text" class="my-button" onclick="location.href='./register.html'">Sing in</button>
-          
+
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+  </head>
+  
+      <body>
+
+        <nav>
+          <div class="nav-container">
+            
+            <a href="index.html">
+              <img src="./img/Logo.png" class="logonav">
+            </a>
+            <div class="Tit" id="Tit">
+             <a href="regiser.php">สมัครสมาชิก/ล็อกอิน</a>
+             <a href="./img/payment.jpg">การชำระเงิน</a>
+             <a href="./img/การติดต่อ.jpg">การติดต่อ</a>
+              </div>
             <div class="nav-profile">
-              <p class="nav-profile-name">basket</p>
-              <div class="nav-profile-cart">
-                <i class="fa-sharp fa-solid fa-cart-plus"></i>
-                <div class="cartcount">
-                  5
+              <p class="nav-profile-name">Bearbug</p>
+              <div onclick="openCart()" style="cursor: pointer;" class="nav-profile-cart">
+                <i class="fas fa-cart-shopping"></i>
+                <div id="cartcount" class="cartcount" style="display: none;">
+                  0
                 </div>
               </div>
             </div>
           </div>
         </nav>
-
-        <diV class="container">
+      
+        <div class="container">
+  
           <div class="sidebar">
-            <input onclick="searchsomething(this)" id = "txt_search" type="text" class="sidebar-search" placeholder="Search something">
-              <a onclick="searchproduct('all')" class="sidebar-item">
-                All Products
-              </a>
-              <a onclick="searchproduct('shoe')" class="sidebar-item">
-                Shoe
-              </a>
-              <a onclick="searchproduct('Trousers')" class="sidebar-item">
-                Trousers
-              </a>
-              
+            <input onkeyup="searchsomething(this)" id="txt_search" type="text" class="sidebar-search" placeholder="Search something...">
+      
+            <a onclick="searchproduct('all')" class="sidebar-items">
+              All product
+            </a>
+            <a onclick="searchproduct('shoe')" class="sidebar-items">
+              Shoe
+            </a>
+            <a onclick="searchproduct('shirt')" class="sidebar-items">
+              Shirt
+            </a>
           </div>
-          <div id="Product-list"class="Product"></div>
-        </diV>
-
-        <div id= "modelDesc" class="model" style="display:none">
-          <div onclick="closeModel()" class="model-bg"></div>
-            <div class="model-page">
-              <h2>Detail</h2>
-              <br>
-              <div class="model-content">
-                <img class="model-img"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                <div class="model-detail">
-                  <p style="font-size: 1.5vw;">ProductName</p>
-                  <p style="font-size: 1.2vw;">500 THB</p>
-                  <br>
-                  <p style="color:rgb(0, 0, 0)">geoghepworhgr9gbh rph tibrpobhrtwph w-htw-0yhtr90sh9 p</p>
-                  <br>
-                  <div class="btn-control">
-                    <button  onclick="closeModel()" class="btn">
-                      Close
-                    </button>
-                    <button class="btn btn-bey">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+          <div id="productlist" class="product">
+      
+          </div>
         </div>
-
-        <div class="model" style="display: none;">
-          <div class="model-bg"></div>
-            <div class="model-page">
-              <h2>My Cart</h2>
-              <br>
-              <div class="cartlist" >
-                <div class="cartlist-item">
-                  <div class="cartlist-left">
-                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                    <div class="cartlist-detail">
-                      <p style="font: size 1.5vw;">ProductName</p>
-                      <p style="font-size: 1.2vw;">500 THB</p>
-                    </div>
-                  </div>
-                  <div class="cartlist-right">
-                    <p class="btnc">-</p>
-                    <p style="margin: 0 10px ;">1</p>
-                    <p class="btnc">+</p>
-                  </div>
-                </div>
-                <div class="cartlist-item">
-                  <div class="cartlist-left">
-                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                    <div class="cartlist-detail">
-                      <p style="font: size 1.5vw;">ProductName</p>
-                    <p style="font-size: 1.2vw;">500 THB</p>
-                    </div>
-                  </div>
-                  <div class="cartlist-right">
-                    <p class="btnc">-</p>
-                    <p style="margin: 0 10px ;">1</p>
-                    <p class="btnc">+</p>
-                  </div>
-                </div>
-                <div class="cartlist-item">
-                  <div class="cartlist-left">
-                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                    <div class="cartlist-detail">
-                      <p style="font: size 1.5vw;">ProductName</p>
-                      <p style="font-size: 1.2vw;">500 THB</p>
-                    </div>
-                  </div>
-                  <div class="cartlist-right">
-                    <p class="btnc">-</p>
-                    <p style="margin: 0 10px ;">1</p>
-                    <p class="btnc">+</p>
-                  </div>
-                </div>
+      
+        <div id="modalDesc" class="modal" style="display: none;">
+          <div onclick="closeModal()" class="modal-bg"></div>
+          <div class="modal-page">
+            <h2>Detail</h2>
+            <br>
+            <div class="modaldesc-content">
+              <img id="mdd-img" class="modaldesc-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+              <div class="modaldesc-detail">
+                <p id="mdd-name" style="font-size: 1.5vw;">Product name</p>
+                <p id="mdd-price" style="font-size: 1.2vw;">500 THB</p>
+                <br>
+                <p id="mdd-desc" style="color: #adadad;">Lorem iaudantium harum doloremque alias. Quae, vel ipsum quasi, voluptas, sit optio nemo magni numquam non dicta voluptates porro! Vero eveniet numquam sit aut vel eligendi officiis iste tenetur expedita. Delectus vero quibusdam adipisci in. Esse.</p>
+                <br>
                 <div class="btn-control">
-                  <button class="btn">
-                    Cancel
+                  <button onclick="closeModal()" class="btn">
+                    Close
                   </button>
-                  <button class="btn btn-bey">
-                    Buy
+                  <button onclick="addtocart()" class="btn btn-buy">
+                    Add to cart
                   </button>
+                </div>
               </div>
             </div>
+          </div>
         </div>
-
-  </body>
-</html>
+      
+        <div id="modalCart" class="modal" style="display: none;">
+          <div onclick="closeModal()" class="modal-bg"></div>
+          <div class="modal-page">
+            <h2>My cart</h2>
+            <br>
+            <div id="mycart" class="cartlist">
+      
+            </div>
+            <div class="btn-control">
+              <button onclick="closeModal()" class="btn">
+                Cancel
+              </button>
+              <button class="btn btn-buy">
+                Buy
+              </button>
+            </div>
+          </div>
+        </div>
+      
+      </body>

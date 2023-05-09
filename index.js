@@ -1,45 +1,49 @@
-var product =[{
+var product = [{
     id: 1,
-    img:'./img/t-shirt.png',
-    name:'Shirt',
-    price:300,
-    description:' Shirt Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, aut. Sit modi dolorum aliquam voluptate unde quibusdam qui eligendi explicabo minus dignissimos? Velit, alias porro repellendus nesciunt impedit doloribus commodi!',
-    type: 'Shirt'
-},{
-    id: 2,
-    img:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsneakersd.cn%2Fwp-content%2Fuploads%2F2022%2F11%2Faustin%2520shoe%2520company.jpeg&f=1&nofb=1&ipt=5d6743c93f37c18a25b0f892f939b2f1603edcb130bf7d8306be00d36c4a436b&ipo=images',
-    name:'Shoe',
-    price:600,
-    description: ' trousers Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, aut. Sit modi dolorum aliquam voluptate unde quibusdam qui eligendi explicabo minus dignissimos? Velit, alias porro repellendus nesciunt impedit doloribus commodi!',
+    img: './img/photo-1542291026-7eec264c27ff.avif',
+    name: 'Nike',
+    price: 7000,
+    description: 'Nike Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
     type: 'shoe'
-},{
+}, {
+    id: 2,
+    img: './img/photo-1511746315387-c4a76990fdce.avif',
+    name: 'Adidas shirt',
+    price: 1500,
+    description: 'Adidas shirt Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
+    type: 'shirt'
+}, {
     id: 3,
-    img:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.vZwnrN-opB_jgjgMuxuuggHaJ4%26pid%3DApi&f=1&ipt=b942202f52e3681c392d957f1200a0eaf76d5e05562a385fe1aa3f47c5a311a0&ipo=images',
-    name:'Trousers',
-    price:600,
-    description: ' trousers Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, aut. Sit modi dolorum aliquam voluptate unde quibusdam qui eligendi explicabo minus dignissimos? Velit, alias porro repellendus nesciunt impedit doloribus commodi!',
-    type: 'Trousers'
+    img: './img/photo-1593287073863-c992914cb3e3.avif',
+    name: 'Adidas shoe',
+    price: 45000,
+    description: 'Adidas shoe Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, labore dolorum optio ad consequatur cupiditate!',
+    type: 'shoe'
 }];
 
-$(document).ready(()=> {
+// [{},{},{}] // length = 3
+
+$(document).ready(() => {
     var html = '';
-    for (let i=0;i < product.length; i++){
-       html += ` <div onclick="openProductDetail(${i})" class="product-item ${product[i].type}">
+    for (let i = 0; i < product.length; i++) {
+        html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
                     <img class="product-img" src="${product[i].img}" alt="">
                     <p style="font-size: 1.2vw;">${product[i].name}</p>
-                    <p style="font-size: 1vw;">${numberWithCommas(product[i].price)}THB</p>
-              </div>` 
+                    <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
+                </div>`;
     }
-    $("#Product-list").html(html);
- 
+    $("#productlist").html(html);
+
 })
-function numberWithCommas(x){
+
+function numberWithCommas(x) {
     x = x.toString();
     var pattern = /(-?\d+)(\d{3})/;
     while (pattern.test(x))
-        x = x.replace(pattern, "$1,$2")
+        x = x.replace(pattern, "$1,$2");
     return x;
 }
+
 function searchsomething(elem) {
     // console.log('#'+elem.id)
     var value = $('#'+elem.id).val()
@@ -48,28 +52,180 @@ function searchsomething(elem) {
     var html = '';
     for (let i = 0; i < product.length; i++) {
         if( product[i].name.includes(value) ) {
-            html += `<div onclick="openProductDetail(${i}) class="product-items ${product[i].type}">
+            html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
                     <img class="product-img" src="${product[i].img}" alt="">
                     <p style="font-size: 1.2vw;">${product[i].name}</p>
                     <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
                 </div>`;
         }
     }
-}
-if(html == ''){
-    $("Product-list").html(`<p>Not found product</p>`)
-}else{
-        $("Product-list").html(html)
-}
-
-function searchproduct(params) {
-    console.log(params)
-    $(".product-item").css('display', 'none')
-    if(params == 'all'){
-        $(".product-item").css('display', 'block')
-    }else{
-        $("."+params).css('display', 'block')
+    if(html == '') {
+        $("#productlist").html(`<p>Not found product</p>`);
+    } else {
+        $("#productlist").html(html);
     }
-    
+
+}
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
 }
 
+function searchsomething(elem) {
+    // console.log('#'+elem.id)
+    var value = $('#'+elem.id).val()
+    console.log(value)
+
+    var html = '';
+    for (let i = 0; i < product.length; i++) {
+        if( product[i].name.includes(value) ) {
+            html += `<div onclick="openProductDetail(${i})" class="product-items ${product[i].type}">
+                    <img class="product-img" src="${product[i].img}" alt="">
+                    <p style="font-size: 1.2vw;">${product[i].name}</p>
+                    <p stlye="font-size: 1vw;">${ numberWithCommas(product[i].price) } THB</p>
+                </div>`;
+        }
+    }
+    if(html == '') {
+        $("#productlist").html(`<p>Not found product</p>`);
+    } else {
+        $("#productlist").html(html);
+    }
+
+}
+
+function searchproduct(param) {
+    console.log(param)
+    $(".product-items").css('display', 'none')
+    if(param == 'all') {
+        $(".product-items").css('display', 'block')
+    }
+    else {
+        $("."+param).css('display', 'block')
+    }
+}
+
+var productindex = 0;
+function openProductDetail(index) {
+    productindex = index;
+    console.log(productindex)
+    $("#modalDesc").css('display', 'flex')
+    $("#mdd-img").attr('src', product[index].img);
+    $("#mdd-name").text(product[index].name)
+    $("#mdd-price").text( numberWithCommas(product[index].price) + ' THB')
+    $("#mdd-desc").text(product[index].description)
+}
+
+function closeModal() {
+    $(".modal").css('display','none')
+}
+
+var cart = [];
+function addtocart() {
+    var pass = true;
+
+    for (let i = 0; i < cart.length; i++) {
+        if( productindex == cart[i].index ) {
+            console.log('found same product')
+            cart[i].count++;
+            pass = false;
+        }
+    }
+
+    if(pass) {
+        var obj = {
+            index: productindex,
+            id: product[productindex].id,
+            name: product[productindex].name,
+            price: product[productindex].price,
+            img: product[productindex].img,
+            count: 1
+        };
+        // console.log(obj)
+        cart.push(obj)
+    }
+    console.log(cart)
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Add ' + product[productindex].name + ' to cart !'
+    })
+    $("#cartcount").css('display','flex').text(cart.length)
+}
+
+function openCart() {
+    $('#modalCart').css('display','flex')
+    rendercart();
+}
+
+function rendercart() {
+    if(cart.length > 0) {
+        var html = '';
+        for (let i = 0; i < cart.length; i++) {
+            html += `<div class="cartlist-items">
+                        <div class="cartlist-left">
+                            <img src="${cart[i].img}" alt="">
+                            <div class="cartlist-detail">
+                                <p style="font-size: 1.5vw;">${cart[i].name}</p>
+                                <p style="font-size: 1.2vw;">${ numberWithCommas(cart[i].price * cart[i].count) } THB</p>
+                            </div>
+                        </div>
+                        <div class="cartlist-right">
+                            <p onclick="deinitems('-', ${i})" class="btnc">-</p>
+                            <p id="countitems${i}" style="margin: 0 20px;">${cart[i].count}</p>
+                            <p onclick="deinitems('+', ${i})" class="btnc">+</p>
+                        </div>
+                    </div>`;
+        }
+        $("#mycart").html(html)
+    }
+    else {
+        $("#mycart").html(`<p>Not found product list</p>`)
+    }
+}
+
+function deinitems(action, index) {
+    if(action == '-') {
+        if(cart[index].count > 0) {
+            cart[index].count--;
+            $("#countitems"+index).text(cart[index].count)
+
+            if(cart[index].count <= 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Are you sure to delete?',
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Delete',
+                    cancelButtonText: 'Cancel'
+                }).then((res) => {
+                  if(res.isConfirmed) {
+                     cart.splice(index, 1) 
+                     console.log(cart)
+                     rendercart();
+                     $("#cartcount").css('display','flex').text(cart.length)
+                     
+                     if(cart.length <= 0) {
+                        $("#cartcount").css('display','none')
+                     }
+                  }  
+                  else {
+                    cart[index].count++;
+                    $("#countitems"+index).text(cart[index].count)
+                    rendercart();
+                  }
+                })
+            }
+            rendercart();
+        }
+        
+    }
+    else if(action == '+') {
+        cart[index].count++;
+        $("#countitems"+index).text(cart[index].count)
+        rendercart();
+    }
+}
