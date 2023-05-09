@@ -1,144 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, init ial-scale=1.0">
-  <title>Shopping</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, init ial-scale=1.0">
+    <title>Shopping</title>
 
-  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    <!--ส้วนบนของเว็บไซต์-->
-      <nav>
-        <!-- กล่องที่1 -->
-        <div class="nav-container">
-          <a href="index.html">
-            <img class="navlogo" src="./img/49282.jpg" class="navlogo" >
-          </a>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+        <!--ส้วนบนของเว็บไซต์-->
+        <nav>
+          <!-- กล่องที่1 -->
+          <div class="nav-container">
+            <a href="index.html">
+              <img class="navlogo" src="./img/49282.jpg" class="navlogo" >
+            </a>
 
-          <!-- กล่องที่2 -->
-          <!--<button type="button" class="my-button" onclick="location.href='./Login.html'">Sing in</button>-->
-          <div class="nav-profile">
-            <p class="nav-profile-name">basket</p>
-            <div class="nav-profile-cart">
-              <i class="fa-sharp fa-solid fa-cart-plus"></i>
-              <div class="cartcount">
-                5
+            <!-- กล่องที่2 -->
+            <button type="text" class="my-button" onclick="location.href='./register.html'">Sing in</button>
+          
+            <div class="nav-profile">
+              <p class="nav-profile-name">basket</p>
+              <div class="nav-profile-cart">
+                <i class="fa-sharp fa-solid fa-cart-plus"></i>
+                <div class="cartcount">
+                  5
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      <diV class="cotainer">
-        <div class="sidebar">
-          <input type="text" class="sidebar-search" placeholder="Search something">
+        <diV class="container">
+          <div class="sidebar">
+            <input onclick="searchsomething(this)" id = "txt_search" type="text" class="sidebar-search" placeholder="Search something">
+              <a onclick="searchproduct('all')" class="sidebar-item">
+                All Products
+              </a>
+              <a onclick="searchproduct('shoe')" class="sidebar-item">
+                Shoe
+              </a>
+              <a onclick="searchproduct('Trousers')" class="sidebar-item">
+                Trousers
+              </a>
+              
+          </div>
+          <div id="Product-list"class="Product"></div>
+        </diV>
 
-          <a href="#" class="sidebar-item">
-            Menu 1
-          </a>
-          <a href="#" >
-          <a href="#" class="sidebar-item">
-            Menu 2
-          </a>
-          <a href="#" class="sidebar-item">
-            Menu 3
-          </a>
-          <a href="#" class="sidebar-item">
-            Menu 4
-          </a>
-        </div>
-        <div id="Product-list"class="Product">
-          
-        </div>
-      </diV>
+        <div id= "modelDesc" class="model" style="display:none">
+          <div onclick="closeModel()" class="model-bg"></div>
+            <div class="model-page">
+              <h2>Detail</h2>
+              <br>
+              <div class="model-content">
+                <img class="model-img"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
+                <div class="model-detail">
+                  <p style="font-size: 1.5vw;">ProductName</p>
+                  <p style="font-size: 1.2vw;">500 THB</p>
+                  <br>
+                  <p style="color:rgb(0, 0, 0)">geoghepworhgr9gbh rph tibrpobhrtwph w-htw-0yhtr90sh9 p</p>
+                  <br>
+                  <div class="btn-control">
+                    <button  onclick="closeModel()" class="btn">
+                      Close
+                    </button>
+                    <button class="btn btn-bey">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-      <div class="model" style="display: none;">
-        <div class="model-bg"></div>
-          <div class="model-page">
-            <h2>Detail</h2>
-            <br>
-            <div class="model-content">
-              <img class="model-img"src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-              <div class="model-detail">
-                <p style="font-size: 1.5vw;">ProductName</p>
-                <p style="font-size: 1.2vw;">500 THB</p>
-                <br>
-                <p style="color:rgb(0, 0, 0)">geoghepworhgr9gbh rph tibrpobhrtwph w-htw-0yhtr90sh9 p</p>
-                <br>
+            </div>
+        </div>
+
+        <div class="model" style="display: none;">
+          <div class="model-bg"></div>
+            <div class="model-page">
+              <h2>My Cart</h2>
+              <br>
+              <div class="cartlist" >
+                <div class="cartlist-item">
+                  <div class="cartlist-left">
+                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
+                    <div class="cartlist-detail">
+                      <p style="font: size 1.5vw;">ProductName</p>
+                      <p style="font-size: 1.2vw;">500 THB</p>
+                    </div>
+                  </div>
+                  <div class="cartlist-right">
+                    <p class="btnc">-</p>
+                    <p style="margin: 0 10px ;">1</p>
+                    <p class="btnc">+</p>
+                  </div>
+                </div>
+                <div class="cartlist-item">
+                  <div class="cartlist-left">
+                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
+                    <div class="cartlist-detail">
+                      <p style="font: size 1.5vw;">ProductName</p>
+                    <p style="font-size: 1.2vw;">500 THB</p>
+                    </div>
+                  </div>
+                  <div class="cartlist-right">
+                    <p class="btnc">-</p>
+                    <p style="margin: 0 10px ;">1</p>
+                    <p class="btnc">+</p>
+                  </div>
+                </div>
+                <div class="cartlist-item">
+                  <div class="cartlist-left">
+                    <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
+                    <div class="cartlist-detail">
+                      <p style="font: size 1.5vw;">ProductName</p>
+                      <p style="font-size: 1.2vw;">500 THB</p>
+                    </div>
+                  </div>
+                  <div class="cartlist-right">
+                    <p class="btnc">-</p>
+                    <p style="margin: 0 10px ;">1</p>
+                    <p class="btnc">+</p>
+                  </div>
+                </div>
                 <div class="btn-control">
                   <button class="btn">
-                    Close
+                    Cancel
                   </button>
                   <button class="btn btn-bey">
-                    Add to Cart
+                    Buy
                   </button>
-                </div>
               </div>
             </div>
+        </div>
 
-          </div>
-      </div>
-
-      <div class="model" style="display: none;">
-        <div class="model-bg"></div>
-          <div class="model-page">
-            <h2>My Cart</h2>
-            <br>
-            <div class="cartlist">
-              <div class="cartlist-item">
-                <div class="cartlist-left">
-                  <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                  <div class="cartlist-detail"></div>
-                    <p style="font: size 1.5vw;">ProductName</p>
-                    <p style="font-size: 1.2vw;">500 THB</p>
-                </div>
-                <div class="cartlist-right">
-                  <p class="btnc">-</p>
-                  <p style="margin: 0 10px ;">1</p>
-                  <p class="btnc">+</p>
-                </div>
-              </div>
-              <div class="cartlist-item">
-                <div class="cartlist-left">
-                  <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                  <div class="cartlist-detail"></div>
-                  <p style="font: size 1.5vw;">ProductName</p>
-                  <p style="font-size: 1.2vw;">500 THB</p>
-                </div>
-                <div class="cartlist-right">
-                  <p class="btnc">-</p>
-                  <p style="margin: 0 10px ;">1</p>
-                  <p class="btnc">+</p>
-                </div>
-              </div>
-              <div class="cartlist-item">
-                <div class="cartlist-left">
-                  <img class="cart" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ff.btwcdn.com%2Fstore-35589%2Fproduct%2F40048ec6-09c4-f543-97df-5ef2031980ff.jpg&f=1&nofb=1&ipt=678206895f41521fe6e09054109cacf0713543e37a606fc94282a00474eb6456&ipo=images">
-                  <div class="cartlist-detail"></div>
-                  <p style="font: size 1.5vw;">ProductName</p>
-                  <p style="font-size: 1.2vw;">500 THB</p>
-                </div>
-                <div class="cartlist-right">
-                  <p class="btnc">-</p>
-                  <p style="margin: 0 10px ;">1</p>
-                  <p class="btnc">+</p>
-                </div>
-              </div>
-              <div class="btn-control">
-                <button class="btn">
-                  Cancel
-                </button>
-                <button class="btn btn-bey">
-                  Buy
-                </button>
-            </div>
-          </div>
-      </div>
-
-</body>
+  </body>
 </html>
